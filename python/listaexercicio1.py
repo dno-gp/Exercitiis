@@ -120,7 +120,8 @@ def peso_ideal(altura: float):
     print(f"Seu peso ideal é: {peso}.")
 
 
-# Tendo como dado de entrada a altura (h) de uma pessoa, construa um algoritmo que calcule seu peso ideal, 
+# Tendo como dado de entrada a altura (h) de uma pessoa, 
+# construa um algoritmo que calcule seu peso ideal, 
 # utilizando as seguintes fórmulas:
     # Para homens: (72.7*h) - 58
     # Para mulheres: (62.1*h) - 44.7 
@@ -162,8 +163,12 @@ def pesca():
 
 
 
-Faça um Programa que pergunte quanto você ganha por hora e o número de horas trabalhadas no mês. Calcule e mostre o total do seu salário no referido mês, sabendo-se que são descontados 11% para o Imposto de Renda, 8% para o INSS e 5% para o sindicato, faça um programa que nos dê:
-
+# Faça um Programa que pergunte quanto você ganha por hora e o 
+# número de horas trabalhadas no mês. Calcule e mostre o total 
+# do seu salário no referido mês, sabendo-se que são descontados 
+# 11% para o Imposto de Renda, 8% para o INSS e 5% para o sindicato, 
+# faça um programa que nos dê:
+    """
     salário bruto.
     quanto pagou ao INSS.
     quanto pagou ao sindicato.
@@ -177,13 +182,77 @@ Faça um Programa que pergunte quanto você ganha por hora e o número de horas 
     = Salário Liquido : R$
 
     Obs.: Salário Bruto - Descontos = Salário Líquido. 
+    """
+def salario():
+    taxa_ir = 0.11
+    taxa_inss = 0.08
+    taxa_sindicato = 0.05
 
-Faça um programa para uma loja de tintas. O programa deverá pedir o tamanho em metros quadrados da área a ser pintada. Considere que a cobertura da tinta é de 1 litro para cada 3 metros quadrados e que a tinta é vendida em latas de 18 litros, que custam R$ 80,00. Informe ao usuário a quantidades de latas de tinta a serem compradas e o preço total.
-Faça um Programa para uma loja de tintas. O programa deverá pedir o tamanho em metros quadrados da área a ser pintada. Considere que a cobertura da tinta é de 1 litro para cada 6 metros quadrados e que a tinta é vendida em latas de 18 litros, que custam R$ 80,00 ou em galões de 3,6 litros, que custam R$ 25,00.
+    valor_hora_trab = float(input("Informe o valor da hora de trabalho: "))
+    horas_trab = float(input("Informe a quantidade de horas trabalhadas no mês: "))
+    salario_bruto = horas_trab * valor_hora_trab
+    valor_ir = salario_bruto * taxa_ir
+    valor_inss = salario_bruto * taxa_inss
+    valor_sindicato = salario_bruto * taxa_sindicato
+    salario_liquido = salario_bruto - valor_inss - valor_ir - valor_sindicato
 
-    Informe ao usuário as quantidades de tinta a serem compradas e os respectivos preços em 3 situações:
-    comprar apenas latas de 18 litros;
-    comprar apenas galões de 3,6 litros;
-    misturar latas e galões, de forma que o preço seja o menor. Acrescente 10% de folga e sempre arredonde os valores para cima, isto é, considere latas cheias. 
+    print(f"   Salário Bruto:  + R$ {salario_bruto}.")
+    print(f"        IR (11%):  - RS {valor_ir}.")
+    print(f"       INSS (8%):  - R$ {valor_inss}.")
+    print(f"  Sindicato (5%):  - R$ {valor_sindicato}.")
+    print(f" Salário Líquido:  = R$ {salario_liquido}.")
 
-Faça um programa que peça o tamanho de um arquivo para download (em MB) e a velocidade de um link de Internet (em Mbps), calcule e informe o tempo aproximado de download do arquivo usando este link (em minutos). 
+
+# Faça um programa para uma loja de tintas. O programa 
+# deverá pedir o tamanho em metros quadrados da área 
+# a ser pintada. Considere que a cobertura da tinta 
+# é de 1 litro para cada 3 metros quadrados e que a 
+# tinta é vendida em latas de 18 litros, que custam 
+# R$ 80,00. Informe ao usuário a quantidades de latas 
+# de tinta a serem compradas e o preço total.
+def area_pintura():
+    valor_lata = 80.00
+    capacidade_lata = 18
+
+    area = int(input("Informe a área, em metros quadrados, a ser pintada: "))
+    latas = round(area / 18)
+    preco_total = latas * 80
+
+    print(f"Quantidade de latas: {latas}.")
+    print("Preço total: R$ {0:.2f}.".format(preco_total))
+
+
+# Faça um Programa para uma loja de tintas. O programa deverá pedir 
+# o tamanho em metros quadrados da área a ser pintada. Considere que a cobertura 
+# da tinta é de 1 litro para cada 6 metros quadrados e que a tinta é vendida em 
+# latas de 18 litros, que custam R$ 80,00 ou em galões de 3,6 litros, que custam R$ 25,00.
+
+    #Informe ao usuário as quantidades de tinta a serem compradas e os respectivos preços em 3 situações:
+    #comprar apenas latas de 18 litros;
+    #comprar apenas galões de 3,6 litros;
+    #misturar latas e galões, de forma que o preço seja o menor. Acrescente 
+    #10% de folga e sempre arredonde os valores para cima, isto é, considere latas cheias. 
+def area_pintura_b():
+    valor_lata = 80.00
+    valor_galao = 25.00
+    capacidade_lata = 18    #litros
+    capacidade_galao = 3.6  #litros
+
+    area = int(input("Informe a área, em metros quadrados, a ser pintada: "))
+
+    latas = round(area / capacidade_lata)
+    galoes = round(area / capacidade_galao)
+
+    preco_total_latas = valor_lata * latas
+    preco_total_galoes = valor_galao * galoes
+
+    print(f"Quantidade de latas: {latas}.")
+    print(f"Quantidade de galões: {galoes}.")
+
+    print(f"O valor total de latas: R$ {preco_total_latas}.")
+    print(f"O valor total de galoes: R$ {preco_total_galoes}.")
+
+
+# Faça um programa que peça o tamanho de um arquivo para download (em MB) 
+# e a velocidade de um link de Internet (em Mbps), calcule e informe o tempo 
+# aproximado de download do arquivo usando este link (em minutos). 
