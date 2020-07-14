@@ -74,25 +74,94 @@ def salario():
 # Faça um Programa que peça a temperatura em graus Farenheit, 
 # transforme e mostre a temperatura em graus Celsius. 
 # C = (5 * (F-32) / 9). 
-def Far_cel(faren: float):
+def far_cel(faren: float):
     celsius = (5*(faren-32)/9)
     print(f"A temperatura em graus Celsius é {celsius}º.")
 
 
-Faça um Programa que peça a temperatura em graus Celsius, transforme e mostre em graus Farenheit.
-Faça um Programa que peça 2 números inteiros e um número real. Calcule e mostre:
+# Faça um Programa que peça a temperatura em graus Celsius, 
+# transforme e mostre em graus Farenheit.
+# f = 9*(celsius / 5) + 32
+def cel_far(celsius: float):
+    f = 9 * (celsius / 5) + 32
+    print(f"A temperatura em Fereinheit é {f}.")
 
-    o produto do dobro do primeiro com metade do segundo .
-    a soma do triplo do primeiro com o terceiro.
-    o terceiro elevado ao cubo. 
 
-Tendo como dados de entrada a altura de uma pessoa, construa um algoritmo que calcule seu peso ideal, usando a seguinte fórmula: (72.7*altura) - 58
-Tendo como dado de entrada a altura (h) de uma pessoa, construa um algoritmo que calcule seu peso ideal, utilizando as seguintes fórmulas:
+# Faça um Programa que peça 2 números inteiros e 
+# um número real. Calcule e mostre:
+    # o produto do dobro do primeiro com metade do segundo .
+        # (2*a) * (b/2) = x
+        #  
+    # a soma do triplo do primeiro com o terceiro.
+        # (3*a)+c = x
+        #        
+    # o terceiro elevado ao cubo. 
+        # c**3 = x
+def calculos():
+    inteiros = [int(input("Informe um número inteiro: ")) for i in range(2)]
+    real = float(input("Informe um número real: "))
 
-    Para homens: (72.7*h) - 58
-    Para mulheres: (62.1*h) - 44.7 
+    print(f"Os números informados são: {inteiros[0]}, {inteiros[1]} e {real}.")
 
-João Papo-de-Pescador, homem de bem, comprou um microcomputador para controlar o rendimento diário de seu trabalho. Toda vez que ele traz um peso de peixes maior que o estabelecido pelo regulamento de pesca do estado de São Paulo (50 quilos) deve pagar uma multa de R$ 4,00 por quilo excedente. João precisa que você faça um programa que leia a variável peso (peso de peixes) e calcule o excesso. Gravar na variável excesso a quantidade de quilos além do limite e na variável multa o valor da multa que João deverá pagar. Imprima os dados do programa com as mensagens adequadas.
+    produto = (2* inteiros[0]) * (inteiros[1]/2)
+    soma = (3 * inteiros[0]) + real
+    cubo = real**3
+
+    print(f"O produto do dobro do primeiro com metade do segundo é: {produto}.")
+    print(f"A soma do triplo do primeiro com o tericeiro é igual a {soma}.")
+    print(f"O terceiro elevado ao cubo é: {cubo}.")
+
+
+# Tendo como dados de entrada a altura de uma pessoa, 
+# construa um algoritmo que calcule seu peso ideal, 
+# usando a seguinte fórmula: (72.7*altura) - 58
+def peso_ideal(altura: float):
+    peso = (72.7 * altura) - 58
+    print(f"Seu peso ideal é: {peso}.")
+
+
+# Tendo como dado de entrada a altura (h) de uma pessoa, construa um algoritmo que calcule seu peso ideal, 
+# utilizando as seguintes fórmulas:
+    # Para homens: (72.7*h) - 58
+    # Para mulheres: (62.1*h) - 44.7 
+def peso_ideal2(altura: float, sexo: str):
+    try:
+        if sexo == 'm':
+            peso = (72.7 * altura) - 58
+
+        elif sexo == 'f':
+            peso = (72.7 * altura) - 44.7
+
+        else:
+            print("Erro. Verifique os valores inseridos.")
+
+    except:
+        print("Erro! Verifique os valores inseridos e refaça o teste.")
+
+
+# João Papo-de-Pescador, homem de bem, comprou um microcomputador para 
+# controlar o rendimento diário de seu trabalho. Toda vez que ele traz um peso 
+# de peixes maior que o estabelecido pelo regulamento de pesca do estado de 
+# São Paulo (50 quilos) deve pagar uma multa de R$ 4,00 por quilo excedente. 
+# João precisa que você faça um programa que leia a variável peso (peso de peixes) 
+# e calcule o excesso. Gravar na variável excesso a quantidade de quilos além do limite 
+# e na variável multa o valor da multa que João deverá pagar. Imprima os dados do 
+# programa com as mensagens adequadas.
+def pesca():
+    peso_fixado = 50.0
+    multa  = 4.0
+    peso = float(input("Insira o peso pescado: "))
+    if (peso > 0) and (peso <= 50):
+        print("Peso dentro dos limites regulamentar.")
+
+    elif peso > 50:
+        peso_excedente = peso - peso_fixado
+        multa = peso_excedente * multa
+        print(f"O peso {peso}Kg ultrapassa os limetes legais de 50Kg.")
+        print(f"Devera ser paga uma multa de R$ {multa}.")
+
+
+
 Faça um Programa que pergunte quanto você ganha por hora e o número de horas trabalhadas no mês. Calcule e mostre o total do seu salário no referido mês, sabendo-se que são descontados 11% para o Imposto de Renda, 8% para o INSS e 5% para o sindicato, faça um programa que nos dê:
 
     salário bruto.
