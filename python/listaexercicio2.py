@@ -37,6 +37,13 @@ def genero():
 
 
 # Faça um Programa que verifique se uma letra digitada é vogal ou consoante.
+def vogal():
+    letra = input("Informa uma letra: ")    # A entrada de um dado tipo numérico precisa ser tratada.
+    if letra in ("a", "e", "i", "o", "u"):
+        print("A letra digitada é uma vogal.")
+
+    else:
+        print("A letra digitada é uma consoante.")
 
 
 # Faça um programa para a leitura de duas notas parciais de um aluno. O programa 
@@ -45,9 +52,45 @@ def genero():
         A mensagem "Reprovado", se a média for menor do que sete;
         A mensagem "Aprovado com Distinção", se a média for igual a dez. 
     '''
+def resultado():
+    nota1 = float(input("Informe a primeira nota: "))
+    nota2 = float(input("Informe a segunda nota: "))
+    media = (nota1 + nota2) / 2
+    print(f"A média é: {media}.)"
+
+    if media >= 7 and media < 10:
+        print("Aprovado")
+    elif media == 10:
+        print("Aprovado com distinção.")
+    elif media < 7:
+        print("Reprovado.")
+
+# Faça um Programa que leia três números e mostre o maior deles.
+def maior_numero():
+    maior = 0
+    num1 = int(input("Informe um número: "))
+    if num1 > maior:
+        maior = num1
+
+    num2 = int(input("Informe um número:"))
+    if num2 > maior:
+        maior = num2
+
+    num3 = int(input("Informe um número: "))
+    if num3 > maior:
+        maior = num3
+    
+    print("O maior número é: ", maior, ".")
+
+######################################################################
+##################  MODO PYTHÔNICO (2 LINHAS)  #######################
+######################################################################
+def maior_numero():
+    numeros = [int(input("Informe um número: ")) for i in range(3)]
+    print(f"O maior número informado é {max(numeros)}.")
+#####################################################################
 
 
-Faça um Programa que leia três números e mostre o maior deles.
 Faça um Programa que leia três números e mostre o maior e o menor deles.
 Faça um programa que pergunte o preço de três produtos e informe qual produto você deve comprar, sabendo que a decisão é sempre pelo mais barato.
 Faça um Programa que leia três números e mostre-os em ordem decrescente.
