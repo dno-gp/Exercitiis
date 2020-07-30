@@ -91,8 +91,39 @@ def maior_numero():
 #####################################################################
 
 
-Faça um Programa que leia três números e mostre o maior e o menor deles.
-Faça um programa que pergunte o preço de três produtos e informe qual produto você deve comprar, sabendo que a decisão é sempre pelo mais barato.
+# Faça um Programa que leia três números e mostre o maior e o menor deles.
+
+def maior_menor():
+    num1 = int(input("Informe um número: "))
+        maior = num1
+        menor = num1
+
+    num2 = int(input("Informe outro número: "))
+    if num2 > num1:
+        maior = num2
+    elif num2 < num1:
+        menor = num2
+
+    num3 = int(input("Informe mais outro número: "))
+    if (num3 > num2) and (num3 > num1):
+        maior = num3
+    elif (num3 < num2) (num3 < num1):
+        menor = num3
+
+    print(f"O maior número informado é {maior}.")
+    print(f"O manor número informado é {menor}.")
+
+##################### MODO PYTHÔNICO ################################
+def maior_menor():
+    numeros = [int(input("Informe um número: ")) for i in range(3)]
+    print(f"O maior número informado foi: {max(numeros)}.")
+    print(f"O menor número informado é {min(numros)}.")
+#####################################################################
+
+
+# Faça um programa que pergunte o preço de três produtos e informe qual 
+# produto você deve comprar, sabendo que a decisão é sempre pelo mais barato.
+
 Faça um Programa que leia três números e mostre-os em ordem decrescente.
 Faça um Programa que pergunte em que turno você estuda. Peça para digitar M-matutino ou V-Vespertino ou N- Noturno. Imprima a mensagem "Bom Dia!", "Boa Tarde!" ou "Boa Noite!" ou "Valor Inválido!", conforme o caso.
 As Organizações Tabajara resolveram dar um aumento de salário aos seus colaboradores e lhe contraram para desenvolver o programa que calculará os reajustes.
